@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h2>Usuários cadastrados</h2>
+	</div>
+
+	<div style="padding: 10px; float: right;">
+		<button [routerLink]="['/cadastro']" routerLinkActive="router-link-active" class="btn btn-primary">Cadastrar</button>
+	</div>
+
+	<div class="panel-body">
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th style="width: 25%;">Login</th>
+					<th>Nome</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let usuario of usuarios | async">
+					<td>{{usuario.login}}</td>
+					<td>{{usuario.nome}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>

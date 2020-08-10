@@ -1,0 +1,53 @@
+<br>
+<div class="card">
+	<h4 class="card-header mb-3">Cadastrar usuário</h4>
+	<div class="card-body">
+		<form [formGroup]="formModel" (ngSubmit)="onSubmit()">
+			<div>
+				<!-- NOME -->
+				<div class="col-sm-12 form-group">
+					<label>Nome</label>
+					<input class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls.nome.errors }"
+						formControlName="nome" type="text" placeholder="Nome">
+					<div *ngIf="submitted && formControls.nome.errors" class="invalid-feedback">
+						<div *ngIf="formControls.nome.errors.required">Campo Obrigatório</div>
+					</div>
+				</div>
+
+				<!-- LOGIN -->
+				<div class="col-sm-12 form-group">
+					<label>Login</label>
+					<input class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls.login.errors }"
+						formControlName="login" type="text" placeholder="Login">
+					<div *ngIf="submitted && formControls.login.errors" class="invalid-feedback">
+						<div *ngIf="formControls.login.errors.required">Campo Obrigatório</div>
+					</div>
+				</div>
+
+				<!-- SENHA -->
+				<div class="col-sm-12 form-group">
+					<label>Senha</label>
+					<input class="form-control" formControlName="senha"
+						[ngClass]="{ 'is-invalid': submitted && formControls.senha.errors }" type="password"
+						placeholder="Senha">
+					<div *ngIf="submitted && formControls.senha.errors" class="invalid-feedback">
+						<div *ngIf="formControls.senha.errors.required">Campo Obrigatório</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row form-group">
+                <div class="col-sm-4 form-group">
+                    <button class="btn btn-primary form-control" [routerLink]="['']" routerLinkActive="router-link-active">Cancelar</button>
+                </div>
+                <div class="col-sm-4 form-group">
+                    <button class="btn btn-success form-control" type="submit">Cadastrar</button>
+                </div>
+            </div>
+		</form>
+		<!-- <p>
+			{{ formModel.value | json }}
+		</p> -->
+	</div>
+</div>
+<br>
